@@ -25,13 +25,14 @@ public extension SnippetExtractor {
 		}
 
 		guard let match = fileContents.firstMatch(of: regex) else { return nil }
-		let contents = String(match[snippetReference])
-			.filteringSnippets()
-			.dropping(leadingWhitespace: whitespace)
-
-		return .init(name: name, contents: contents)
+		return .init(
+			name: name,
+			contents: String(match[snippetReference])
+				.filteringSnippets()
+				.dropping(leadingWhitespace: whitespace)
+		)
 	}
-
+	
 	static var live: Self = .init(extract: { fileContents, commentMarker in
 		let whitespaceReference = Reference<Substring>()
 		let snippetNameReference = Reference<Substring>()
@@ -55,21 +56,14 @@ public extension SnippetExtractor {
 			}
 		}
 
-		var snippets: [Snippet] = []
-
-		let matches = fileContents.matches(of: regex)
-		for match in matches {
-			if let snippet = extractSnippet(
+		return fileContents.matches(of: regex).compactMap { match in
+			extractSnippet(
 				fileContents: fileContents,
 				name: String(match[snippetNameReference]),
 				whitespace: String(match[whitespaceReference]),
 				commentMarker: commentMarker
-			) {
-				snippets.append(snippet)
-			}
+			)
 		}
-
-		return snippets
 	})
 }
 
