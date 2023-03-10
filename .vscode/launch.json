@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug SnippetizeExec",
+            "program": "${workspaceFolder:Snippetizer}/.build/debug/SnippetizeExec",
+            "args": [],
+            "cwd": "${workspaceFolder:Snippetizer}",
+            "preLaunchTask": "swift: Build Debug SnippetizeExec"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Release SnippetizeExec",
+            "program": "${workspaceFolder:Snippetizer}/.build/release/SnippetizeExec",
+            "args": [],
+            "cwd": "${workspaceFolder:Snippetizer}",
+            "preLaunchTask": "swift: Build Release SnippetizeExec"
+        }
+    ]
+}

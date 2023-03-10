@@ -9,17 +9,21 @@ public extension SnippetExtractor {
 		commentMarker: String
 	) -> Snippet? {
 		let snippetReference = Reference<Substring>()
-		let start = "\(whitespace)\(commentMarker) snippet:start:\(name)\n"
-		let end = "\(whitespace)\(commentMarker) snippet:end:\(name)\n"
+		let start = "\(whitespace)\(commentMarker) snippet:start:\(name)"
+		let end = "\(whitespace)\(commentMarker) snippet:end:\(name)"
 
 		let regex = Regex {
 			start
+			
+			One(.verticalWhitespace)
 
 			Capture(as: snippetReference) {
 				ZeroOrMore {
 					.any
 				}
 			}
+
+			One(.verticalWhitespace)
 
 			end
 		}
@@ -39,8 +43,6 @@ public extension SnippetExtractor {
 		let startMarker = "\(commentMarker) snippet:start:"
 
 		let regex = Regex {
-			.newlineSequence
-
 			Capture(as: whitespaceReference) {
 				ZeroOrMore {
 					.horizontalWhitespace

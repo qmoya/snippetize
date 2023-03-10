@@ -1,4 +1,4 @@
-public struct Snippet {
+public struct Snippet: Equatable {
 	public let name: String
 	public let contents: String
 }

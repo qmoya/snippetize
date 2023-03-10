@@ -1,34 +1,35 @@
 # Snippetize
 
-A tool for extracting snippets of code from a real program, so that you can embed them
-into a document.
+A tool for extracting snippets of code from an actual program so you can embed them
+into a document. The second-best thing after literate programming.
+
+It’s written in Swift, but it’s not only for Swift.
 
 ## The problem
 
-Imagine you’re writing, using LaTeX, or Pollen, or even Markdown, a book about programming. The book has fair amounts of code.
+Imagine you’re writing a book about programming using LaTeX, Pollen, or even Markdown. The book has a fair amount of code.
 
-You could directly type the code into the text, but the code snippets could contain
-typos, or not compile, or be inconsistent with other code snippets referenced elsewhere,
-or not pass unit tests.
+You could directly type the code into the text, but the code snippets may contain
+typos, or not compile, or be inconsistent with other code snippets referenced elsewhere, or fail unit tests.
 
-You don’t want any of that: you want the code you quote to be correct. It’s likely your readers will also want that.
+You don’t want any of that: you want the code you quote to be correct. So do your readers.
 
 ## The solution
 
 `snippetize` lets you turn actual programs into the source of your code snippets.
 
 Whenever you want to quote a piece of code, go to the respective module 
-—a Swift package, in the following example— and add a special comment, like this:
+—a Swift package, in the following example— and add a special comment:
 
 ```swift
 public struct Greeter {
-    public private(set) var text = "Hello, World!"
+	public private(set) var text = "Hello, World!"
 
-    // snippet:begin:greeter.swift
-    public init() {
-        print(text)
-    }
-    // snippet:end:greeter.swift
+	// snippet:begin:greeter.swift
+	public init() {
+		print(text)
+	}
+	// snippet:end:greeter.swift
 }
 ```
 
@@ -38,7 +39,7 @@ Then run `snippetize` on the package:
 $ snipettize .
 ```
 
-And have a look at the `Outputs` directory:
+Now have a look at the `Outputs` directory:
 
 ```sh
 $ ls Outputs
@@ -49,7 +50,7 @@ public init() {
 }
 ```
 
-Notice how `snippetize` removes the indentation from the snippet. It also strips any other overlapping snippet; none of the `snippet:`
+Notice how `snippetize` removes the indentation from the snippet. It also strips any other nested or overlapping snippet; none of the `snippet:`
 comments will leak into your text.
 
 You can now reference `greeter.swift` from your book’s source. In LaTeX, you’d
