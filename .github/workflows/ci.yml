@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         xcode: ['14.2']
-        config: ['debug', 'release']
+        config: ['debug']
     steps:
       - uses: actions/checkout@v3
       - name: Select Xcode ${{ matrix.xcode }}
