@@ -6,6 +6,10 @@ import PackageDescription
 let package = Package(
 	name: "Snippetize",
 	platforms: [.macOS(.v12)],
+	products: [
+		.executable(name: "SnippetizeExec", targets: ["SnippetizeExec"]),
+		.library(name: "Snippetize", targets: ["Snippetize"]),
+	],
 	dependencies: [
 		.package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.2.2"),
 	],

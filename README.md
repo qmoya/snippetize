@@ -64,6 +64,8 @@ And here’s how you greet in Swift:
 
 ## Usage
 
+### Executable
+
 ```
 USAGE: snippetize <path> [--comment-marker <comment-marker>] [--extension <extension>] [--output-dir <output-dir>]
 
@@ -80,4 +82,12 @@ OPTIONS:
   -o, --output-dir <output-dir>
                           Where to output the snippets. (default: Output)
   -h, --help              Show help information.
+```
+
+### Library
+
+Add the dependency to your `Package.swift`.
+
+```
+.package(url: "https://github.com/qmoya/snippetize.git", branch: "main"),
 ```
