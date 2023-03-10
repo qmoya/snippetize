@@ -20,6 +20,7 @@ struct Snippetize: ParsableCommand {
 	@Option(name: .shortAndLong, help: "Where to output the snippets.")
 	var outputDir: String = "Output"
 
+	@available(macOS 13.0, *)
 	mutating func run() throws {
 		let fileManager = FileManager.default
 

@@ -1,6 +1,7 @@
 import Foundation
 import RegexBuilder
 
+@available(macOS 13.0, *)
 public extension SnippetExtractor {
 	private static func extractSnippet(
 		fileContents: String,
@@ -70,6 +71,7 @@ public extension SnippetExtractor {
 }
 
 extension String {
+	@available(macOS 13.0, *)
 	func dropping(leadingWhitespace whitespace: String) -> String {
 		let regex = Regex {
 			Anchor.startOfLine

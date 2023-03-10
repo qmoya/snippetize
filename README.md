@@ -50,7 +50,7 @@ public init() {
 }
 ```
 
-Notice how `snippetize` removes the indentation from the snippet. It also strips any other nested or overlapping snippet; none of the `snippet:`
+Notice how `snippetize` strips the leading indentation. It also strips any nested or overlapping snippet; none of the special
 comments will leak into your text.
 
 You can now reference `greeter.swift` from your book’s source. In LaTeX, you’d

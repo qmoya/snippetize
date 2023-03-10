@@ -1,6 +1,7 @@
 import XCTest
 @testable import Snippetize
 
+@available(macOS 13.0, *)
 final class SnippetizeTests: XCTestCase {
 	var sut: SnippetExtractor!
 
