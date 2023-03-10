@@ -64,7 +64,7 @@ And here’s how you greet in Swift:
 
 ## Usage
 
-### Executable
+### As an executable
 
 ```
 USAGE: snippetize <path> [--comment-marker <comment-marker>] [--extension <extension>] [--output-dir <output-dir>]
@@ -84,7 +84,7 @@ OPTIONS:
   -h, --help              Show help information.
 ```
 
-### Library
+### As a library
 
 Add the dependency to your `Package.swift`.
 
