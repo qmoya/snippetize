@@ -20,7 +20,7 @@ jobs:
       - name: Install
         run: brew install swiftformat
       - name: Format
-        run: make format
+        run: swiftformat .
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Run swift-format
